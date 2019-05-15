@@ -14,6 +14,9 @@ TODO: bootstrap with ansible?
     ```sudo apt install -y zsh```
   - [`slimzsh`](https://github.com/changs/slimzsh)
       ```git clone --recursive https://github.com/changs/slimzsh.git ~/.zslimzsh```
+  - [`fasd`](https://github.com/clvv/fasd)
+      ```git clone https://github.com/clvv/fasd.git ~/.fasd
+         (cd ~/.fasd && PREFIX=$HOME make install)```
 - `font-hack-ttf`: The extravagantly useful `Hack` font family
 - Well-known SSH keys to clone the git repositories
 - Gnome Terminal
