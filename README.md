@@ -9,6 +9,7 @@ TODO: bootstrap with ansible?
 ### Pre-requisites
 
 - `git`
+  - `tig`
 - `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"
 - `zsh`
     ```sudo apt install -y zsh```
