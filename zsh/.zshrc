@@ -19,3 +19,6 @@ HISTSIZE=5000   # In-memory history
 SAVEHIST=1000   # On-disk history
 setopt append_history   # Append history to the history file
 unsetopt share_history  # Do not read history of other shell
+
+# Use emacs-style key binding
+bindkey -e
