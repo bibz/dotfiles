@@ -12,6 +12,8 @@ TODO: bootstrap with ansible?
 - `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"
 - `zsh`
     ```sudo apt install -y zsh```
+  - [`slimzsh`](https://github.com/changs/slimzsh)
+      ```git clone --recursive https://github.com/changs/slimzsh.git ~/.zslimzsh```
 - `font-hack-ttf`: The extravagantly useful `Hack` font family
 - Well-known SSH keys to clone the git repositories
 - Gnome Terminal
