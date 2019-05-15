@@ -12,8 +12,13 @@ TODO: bootstrap with ansible?
 - `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"
 - `zsh`
     ```sudo apt install -y zsh```
-- `font-hack-ttf`: The extravagantly useful `hack` font family
+- `font-hack-ttf`: The extravagantly useful `Hack` font family
 - Well-known SSH keys to clone the git repositories
+- Gnome Terminal
+  - Set custom font to `Hack Regular`
+  - Set custom color scheme to `Tango Dark`
+  - Set custom paletter to `Solarized`
+  - Unset `Show bold text in bright colors`
 
 ### Installing the configuration files
 
