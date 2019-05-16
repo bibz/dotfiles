@@ -22,6 +22,8 @@ unsetopt share_history  # Do not read history of other shell
 
 # Use emacs-style key binding
 bindkey -e
+bindkey "^[[1;5D" backward-word  # CTRL + left arrow
+bindkey "^[[1;5C" forward-word  # CTRL + right arrow
 
 # Configure the auto-completion features
 zstyle ':completion:*' completer _complete _ignored _approximate
