@@ -32,3 +32,13 @@ zstyle ':completion:*' glob 1
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r:|=*'
 zstyle ':completion:*' max-errors 3
 HYPHEN_INSENSITIVE="true"
+
+# Set up colour support
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+
+  alias ls='ls --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
