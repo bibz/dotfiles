@@ -22,9 +22,8 @@ TODO: bootstrap with ansible?
 - Well-known SSH keys to clone the git repositories
 - Gnome Terminal
   - Set custom font to `Hack Regular`
-  - Set custom color scheme to `Tango Dark`
-  - Set custom paletter to `Solarized`
   - Unset `Show bold text in bright colors`
+  - Add the Invisibone theme with `~/.config/dotfiles/bin/gnome-terminal-invisibone.sh`
 
 ### Installing the configuration files
 
