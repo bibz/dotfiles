@@ -42,3 +42,8 @@ if [ -x /usr/bin/dircolors ]; then
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
+
+# Set up aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
