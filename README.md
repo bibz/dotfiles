@@ -11,6 +11,7 @@ TODO: bootstrap with ansible?
 - `git`
   - `tig`
 - `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"
+- [`sublime`](https://www.sublimetext.com/docs/3/linux_repositories.html)
 - `zsh`
     ```sudo apt install -y zsh```
   - [`slimzsh`](https://github.com/changs/slimzsh)
