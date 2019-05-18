@@ -1,10 +1,6 @@
-source "${HOME}/.slimzsh/slim.zsh"
+MNML_MAGICENTER=(mnml_me_dirs mnml_me_git)
 
-# Do not automatically fetch git remotes
-PURE_GIT_PULL=0
-
-# Drop the fancy prompt symbol for the classic dollar sign
-PURE_PROMPT_SYMBOL=$
+source "${HOME}/Projects/FLOSS/minimal/minimal.zsh"
 
 # Optionally include local binaries
 for local_dir in bin .local/bin; do
