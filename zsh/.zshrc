@@ -50,3 +50,16 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' completions 1
+zstyle ':completion:*' glob 1
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' max-errors 3
+zstyle :compinstall filename '/home/borjan/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
