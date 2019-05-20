@@ -1,4 +1,9 @@
+# Configure the minimal prompt
+MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status)
+MNML_RPROMPT=('mnml_cwd 2 20' mnml_git)
 MNML_MAGICENTER=(mnml_me_dirs mnml_me_git)
+MNML_USER_CHAR=$
+MNML_ELLIPSIS_CHAR="…"
 
 source "${HOME}/Projects/FLOSS/minimal/minimal.zsh"
 
