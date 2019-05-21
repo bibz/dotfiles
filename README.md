@@ -8,6 +8,7 @@ TODO: bootstrap with ansible?
 
 ### Pre-requisites
 
+- `command-not-found`
 - `git`
   - `tig`
 - `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"

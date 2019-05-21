@@ -63,3 +63,5 @@ zstyle :compinstall filename '/home/borjan/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+source /etc/zsh_command_not_found
