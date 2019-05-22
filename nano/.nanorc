@@ -1,0 +1,9 @@
+include /usr/share/nano/c.nanorc
+include /usr/share/nano/default.nanorc
+include /usr/share/nano/json.nanorc
+include /usr/share/nano/makefile.nanorc
+include /usr/share/nano/nanohelp.nanorc
+include /usr/share/nano/nanorc.nanorc
+include /usr/share/nano/patch.nanorc
+include /usr/share/nano/python.nanorc
+include /usr/share/nano/sh.nanorc
