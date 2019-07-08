@@ -2,6 +2,8 @@
 MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status)
 MNML_RPROMPT=('mnml_cwd 2 20' mnml_git)
 MNML_MAGICENTER=(mnml_me_dirs mnml_me_git)
+MNML_MAGICENTER=
+MNML_INFOLN=
 MNML_USER_CHAR=$
 MNML_ELLIPSIS_CHAR="…"
 
