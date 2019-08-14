@@ -3,5 +3,7 @@
 	"detect_indentation": true,
 	"font_face": "Hack",
 	"font_size": 10,
-	"highlight_line": true
+	"highlight_line": true,
+	"spell_check": true,
+	"theme": "Default.sublime-theme"
 }
