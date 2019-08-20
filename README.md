@@ -26,6 +26,8 @@ TODO: bootstrap with ansible?
   - Set custom font to `Hack Regular`
   - Unset `Show bold text in bright colors`
   - Add the Invisibone theme with `~/.config/dotfiles/bin/gnome-terminal-invisibone.sh`
+- [`pyenv`](https://github.com/pyenv/pyenv) (consider using
+  [`pyenv-installer`](https://github.com/pyenv/pyenv-installer))
 
 ### Installing the configuration files
 
