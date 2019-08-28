@@ -1,3 +1,6 @@
+# Load new functions
+fpath+=~/.zfunc
+
 # Configure the minimal prompt
 MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status)
 MNML_RPROMPT=('mnml_cwd 2 20' mnml_git)
