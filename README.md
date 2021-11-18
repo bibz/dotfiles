@@ -28,6 +28,12 @@ TODO: bootstrap with ansible?
   - Add the Invisibone theme with `~/.config/dotfiles/bin/gnome-terminal-invisibone.sh`
 - [`pyenv`](https://github.com/pyenv/pyenv) (consider using
   [`pyenv-installer`](https://github.com/pyenv/pyenv-installer))
+- [`zsh-nvm`](https://github.com/lukechilds/zsh-nvm) to provide
+  [`nvm`](https://github.com/nvm-sh/nvm/)
+  - ```mkdir -p  ~/git/github.com/lukechilds/
+       git clone https://github.com/lukechilds/zsh-nvm.git ~/git/github.com/lukechilds/zsh-nvm```
+  - Initialise `nvm` by calling it for the first time: ```nvm```
+  - Install (globally) the Node.js software you need
 
 ### Installing the configuration files
 

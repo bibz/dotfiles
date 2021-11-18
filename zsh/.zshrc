@@ -12,12 +12,26 @@ MNML_ELLIPSIS_CHAR="…"
 
 source "${HOME}/Projects/FLOSS/minimal/minimal.zsh"
 
-# Optionally include local binaries
-for local_dir in bin .local/bin; do
-  if [ -d "${HOME}/${local_dir}" ]; then
-    PATH="${HOME}/${local_dir}:${PATH}"
+# Optionally extend the PATH environment variable.
+# Note the order of preference is reversed (LIFO).
+function path_prepend {
+  if [ -d "$1" ]; then
+    PATH="$1:${PATH}"
   fi
-done
+}
+function path_append {
+  if [ -d "$1" ]; then
+    PATH="${PATH}:$1"
+  fi
+}
+path_append "/snap/bin"  # Snaps
+path_append "$HOME/Android/Sdk/platform-tools"  # Android tools
+path_prepend "$HOME/.cargo/bin"  # local Rust binaries
+path_prepend "$HOME/.local/bin"  # local Python (pipx) binaries
+path_prepend "$HOME/bin"  # local scripts
+export PATH=$(zsh -fc "typeset -TU P=$PATH p; echo \$P")  # dedupe elements
+unset -f path_append
+unset -f path_prepend
 
 # Configure the Z shell history
 HISTFILE=~/.zsh_history
@@ -61,6 +75,10 @@ export PYENV_ROOT="${HOME}/.local/pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Load zsh-nvm
+export NVM_LAZY_LOAD=true
+source ~/Projects/FLOSS/lukechilds/zsh-nvm/zsh-nvm.plugin.zsh
 
 # The following lines were added by compinstall
 
