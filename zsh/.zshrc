@@ -1,17 +1,6 @@
 # Load new functions
 fpath+=~/.zfunc
 
-# Configure the minimal prompt
-MNML_PROMPT=(mnml_ssh mnml_pyenv mnml_status)
-MNML_RPROMPT=('mnml_cwd 2 20' mnml_git)
-MNML_MAGICENTER=(mnml_me_dirs mnml_me_git)
-MNML_MAGICENTER=
-MNML_INFOLN=
-MNML_USER_CHAR=$
-MNML_ELLIPSIS_CHAR="…"
-
-source "${HOME}/Projects/FLOSS/minimal/minimal.zsh"
-
 # Optionally extend the PATH environment variable.
 # Note the order of preference is reversed (LIFO).
 function path_prepend {
@@ -94,3 +83,5 @@ compinit
 # End of lines added by compinstall
 
 source /etc/zsh_command_not_found
+
+eval "$(starship init zsh)"
