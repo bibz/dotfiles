@@ -1,0 +1,24 @@
+[user]
+	email = 5141956+bibz@users.noreply.github.com  # public-facing e-mail address
+	name = Borjan Tchakaloff
+[alias]
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        hist = log --pretty=format:\"%C(auto)%h %ad | %s%C(auto)%d [%an]\" --graph --date=short
+        sdiff = "!bash -c 'O=(); A=(); while x=\"$1\"; shift; do case $x in -*) O+=(\"$x\");; *) A+=(\"$x^{}\");; esac; done; g(){ git show \"${A[$1]}\" && return; echo FAIL ${A[$1]}; git show \"${A[$2]}\"; }; diff \"${O[@]}\" <(g 0 1) <(g 1 0)' --"
+        logl = log --pretty=format:\"%C(auto)%h %ad | %s%C(auto)%d [%an]\" --date=short
+        where = "!bash -c 'for c in $(git log --pretty=\"%H\" --all --grep \"$*\"); do echo \"echo \\\"Change appears in $c:\\\"; git branch --all --contains $c\"; done | parallel -k' --"
+[color]
+        ui = auto
+[push]
+        default = simple
+[http]
+	cookiefile = /home/borjan/.gitcookies
+[pull]
+	ff = only
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
+[init]
+	defaultBranch = main
