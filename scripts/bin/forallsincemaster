@@ -1,0 +1,26 @@
+#!/bin/sh
+COMMITS_SINCE_MASTER=$(git log --format=%H --reverse origin/master..)
+NUMBER_OF_COMMITS=$(echo ${COMMITS_SINCE_MASTER} | wc -w)
+
+log() {
+    echo "========== $@ =========="
+}
+
+n=1
+for commit in ${COMMITS_SINCE_MASTER}; do
+    log "In commit $n/${NUMBER_OF_COMMITS=}: ${commit}"
+    git checkout ${commit}
+    $@ || break
+    n=$((n + 1))
+    git checkout -q -
+done
+
+# We exited early
+if test $n -le ${NUMBER_OF_COMMITS} ; then
+    log "Failed at commit $n/${NUMBER_OF_COMMITS}"
+    git checkout -q -
+else
+    log "Successfully surveyed ${NUMBER_OF_COMMITS} commits"
+fi
+
+log "Back to original state"

@@ -1,0 +1,31 @@
+#!/bin/sh
+
+FROM_COMMIT=$1
+shift
+TO_COMMIT=HEAD
+
+COMMITS_IN_BETWEEN=$(git log --format=%H --reverse ${FROM_COMMIT}..${TO_COMMIT})
+NUMBER_OF_COMMITS=$(echo ${COMMITS_IN_BETWEEN} | wc -w)
+
+log() {
+    echo "========== $@ =========="
+}
+
+n=1
+for commit in ${COMMITS_IN_BETWEEN}; do
+    log "In commit $n/${NUMBER_OF_COMMITS=}: ${commit}"
+    git checkout ${commit}
+    $@ || break
+    n=$((n + 1))
+    git checkout -q -
+done
+
+# We exited early
+if test $n -le ${NUMBER_OF_COMMITS} ; then
+    log "Failed at commit $n/${NUMBER_OF_COMMITS}"
+    git checkout -q -
+else
+    log "Successfully surveyed ${NUMBER_OF_COMMITS} commits"
+fi
+
+log "Back to original state"
