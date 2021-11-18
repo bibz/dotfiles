@@ -59,6 +59,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias jql='jq -C --unbuffered '.' | less -R'
+
+# Typo aliases
+alias gti=git
+alias gut=git
+
 # Load pyenv
 export PYENV_ROOT="${HOME}/.local/pyenv"
 export PATH="${PYENV_ROOT}/bin:${PATH}"
