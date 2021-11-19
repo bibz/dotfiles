@@ -93,6 +93,17 @@ compinit
 source /etc/zsh_command_not_found
 
 # Configure prompt
+
+# Enable redrawing of prompt variables
+setopt promptsubst
+
+# Configure git prompt
+source ${HOME}/.git-prompt.sh
+export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+
+# Define prompt
 p_lf=$'\n'
 if [ -n "${SSH_CONNECTION}" ]; then
     p_me='%n@%m'
@@ -109,4 +120,5 @@ fi
 p_path='%B%F{blue}%~%f%b'
 p_indicator='%(?.%F{cyan}.%F{red})%#%f'
 PROMPT="${p_lf}${p_host}${p_path}${p_lf}${p_indicator} "
+RPROMPT='$(__git_ps1 " (%s)")'
 unset p_host p_indicator p_lf p_path
