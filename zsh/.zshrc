@@ -70,8 +70,8 @@ alias gti=git
 alias gut=git
 
 # Load pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+[ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv init -)"
+[ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv virtualenv-init -)"
 
 # Load zsh-nvm
 export NVM_LAZY_LOAD=true
