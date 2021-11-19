@@ -28,9 +28,3 @@ Copy or clone this repository and setup the whole config:
   - Set custom font to `Hack Regular`
   - Unset `Show bold text in bright colors`
   - Add the Invisibone theme with `~/.config/dotfiles/bin/gnome-terminal-invisibone.sh`
-- [`zsh-nvm`](https://github.com/lukechilds/zsh-nvm) to provide
-  [`nvm`](https://github.com/nvm-sh/nvm/)
-  - ```mkdir -p  ~/git/github.com/lukechilds/
-       git clone https://github.com/lukechilds/zsh-nvm.git ~/git/github.com/lukechilds/zsh-nvm```
-  - Initialise `nvm` by calling it for the first time: ```nvm```
-  - Install (globally) the Node.js software you need

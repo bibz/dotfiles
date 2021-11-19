@@ -3,6 +3,7 @@ fpath+=~/.zfunc
 
 # Define install directories
 export PYENV_ROOT="${HOME}/opt/pyenv"
+export NVM_DIR="${HOME}/opt/nvm"
 
 # Optionally extend the PATH environment variable.
 # Note the order of preference is reversed (LIFO).
@@ -73,9 +74,8 @@ alias gut=git
 [ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv init -)"
 [ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv virtualenv-init -)"
 
-# Load zsh-nvm
-export NVM_LAZY_LOAD=true
-source ~/Projects/FLOSS/lukechilds/zsh-nvm/zsh-nvm.plugin.zsh
+# Load nvm
+[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" --no-use
 
 # The following lines were added by compinstall
 

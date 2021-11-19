@@ -69,6 +69,11 @@ dev() {
     checkout 'https://github.com/pyenv/pyenv-which-ext.git'  "${PYENV_ROOT}/plugins/pyenv-which-ext"
     ( cd "${PYENV_ROOT}" && src/configure && make -C src )
 
+    # nvm
+    NVM_DIR=~/opt/nvm
+    checkout 'https://github.com/nvm-sh/nvm.git' "${NVM_DIR}"
+    update_to_latest_tag "${NVM_DIR}"
+
     stow sublime-text-3
 }
 
@@ -88,6 +93,20 @@ checkout() {
     else
         git clone --quiet "${source_repo}" "${target_dir}"
     fi
+}
+
+update_to_latest_tag() {
+    local working_dir
+    local tag
+    working_dir="$1"
+
+    cd "${working_dir}"
+
+    git fetch --quiet --tags origin
+    tag="$(git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1))"
+    git checkout --quiet "${tag}"
+
+    cd -
 }
 
 if [ $# -eq 0 ]; then
