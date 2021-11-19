@@ -113,7 +113,7 @@ else
     p_me=''
 fi
 if [ -n "${p_me}" ]; then
-    p_host="%B%F{green}${p_me}%f%b in"
+    p_host="%B%F{green}${p_me}%f%b in "
 else
     p_host=''
 fi
