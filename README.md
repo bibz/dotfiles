@@ -18,7 +18,7 @@ TODO: bootstrap with ansible?
   - [`fasd`](https://github.com/clvv/fasd)
       ```git clone https://github.com/clvv/fasd.git ~/.fasd
          (cd ~/.fasd && PREFIX=$HOME make install)```
-- `font-hack-ttf`: The extravagantly useful `Hack` font family
+- `fonts-hack-ttf`: The extravagantly useful `Hack` font family
 - Well-known SSH keys to clone the git repositories
 - Gnome Terminal
   - Set custom font to `Hack Regular`
