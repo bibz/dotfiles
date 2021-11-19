@@ -8,6 +8,7 @@ Factually more than that: I also store my personal setup here.
 Bootstrap the system with basic requirements:
 
     % sudo apt update && sudo apt install git zsh
+    % chsh -s "$(which zsh)"
 
 Start a new Z shell session so that the installers will pick up the
 right environment from the start:
