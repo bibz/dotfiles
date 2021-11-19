@@ -1,0 +1,85 @@
+#!/bin/sh
+
+usage() {
+    cat <<HEREDOC
+$0: install and configure my personal setup
+
+Synopsis:
+    $0 all
+    $0 <role>...
+
+Roles:
+    base: Basic configuration and utilities for my everyday CLI life
+    dev: Development tools
+    refresh: Refresh the package repositories
+HEREDOC
+}
+
+refresh() {
+    sudo apt update
+}
+
+apt_install() {
+    sudo DEBIAN_FRONTEND=noninteractive apt install --no-install-recommends --yes $@
+}
+
+base() {
+    apt_install \
+        apt-transport-https \
+        command-not-found \
+        curl \
+        stow \
+        wget \
+        xz-utils
+
+    stow git
+    stow nano
+    stow scripts
+    stow zsh
+}
+
+dev() {
+    # Sublime: https://www.sublimetext.com/docs/linux_repositories.html#apt
+    curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    echo 'deb https://download.sublimetext.com/ apt/stable/' | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    refresh
+
+    apt_install \
+        build-essential \
+        fonts-hack-ttf \
+        make \
+        sublime-text \
+        tig
+
+    # Python build dependencies for pyenv
+    apt_install make build-essential libssl-dev zlib1g-dev \
+            libbz2-dev libreadline-dev libsqlite3-dev llvm \
+            libncursesw5-dev xz-utils tk-dev libxml2-dev \
+            libxmlsec1-dev libffi-dev liblzma-dev
+
+
+    stow sublime-text-3
+}
+
+
+if [ $# -eq 0 ]; then
+    usage
+    exit 0
+fi
+
+set -x
+
+if [ $# -eq 1 -a "x$1" = "xall" ]; then
+    refresh
+    base
+    dev
+    exit 0
+fi
+
+while [ $# -gt 0 ]; do
+    case $1 in
+        base|dev) $1;;
+        *) echo "$(usage)" >&2; exit 1;;
+    esac
+    shift
+done

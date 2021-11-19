@@ -1,24 +1,28 @@
 # dotfiles
 
-My personal collection of dotfiles
+My personal collection of dotfiles.
+Factually more than that: I also store my personal setup here.
 
 ## Fresh installation
 
-TODO: bootstrap with ansible?
+Bootstrap the system with basic requirements:
 
-### Pre-requisites
+    % sudo apt update && sudo apt install git zsh
 
-- `command-not-found`
-- `git`
-  - `tig`
-- `stow`: [GNU Stow](https://gnu.org/software/stow/), the "symlink farm manager"
-- [`sublime`](https://www.sublimetext.com/docs/3/linux_repositories.html)
-- `zsh`
-    ```sudo apt install -y zsh```
-  - [`fasd`](https://github.com/clvv/fasd)
-      ```git clone https://github.com/clvv/fasd.git ~/.fasd
-         (cd ~/.fasd && PREFIX=$HOME make install)```
-- `fonts-hack-ttf`: The extravagantly useful `Hack` font family
+Start a new Z shell session so that the installers will pick up the
+right environment from the start:
+
+    % zsh
+
+Copy or clone this repository and setup the whole config:
+
+    % ./setup all
+
+### Others
+
+- [`fasd`](https://github.com/clvv/fasd)
+    ```git clone https://github.com/clvv/fasd.git ~/.fasd
+       (cd ~/.fasd && PREFIX=$HOME make install)```
 - Well-known SSH keys to clone the git repositories
 - Gnome Terminal
   - Set custom font to `Hack Regular`
@@ -32,10 +36,3 @@ TODO: bootstrap with ansible?
        git clone https://github.com/lukechilds/zsh-nvm.git ~/git/github.com/lukechilds/zsh-nvm```
   - Initialise `nvm` by calling it for the first time: ```nvm```
   - Install (globally) the Node.js software you need
-
-
-### Installing the configuration files
-
-1. Clone this repository, in e.g. `~/.config/dotfiles`.
-2. Change directory and `stow` each and every program you
-    want to configure, e.g. `stow zsh`.
