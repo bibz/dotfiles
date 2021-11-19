@@ -28,8 +28,6 @@ Copy or clone this repository and setup the whole config:
   - Set custom font to `Hack Regular`
   - Unset `Show bold text in bright colors`
   - Add the Invisibone theme with `~/.config/dotfiles/bin/gnome-terminal-invisibone.sh`
-- [`pyenv`](https://github.com/pyenv/pyenv) (consider using
-  [`pyenv-installer`](https://github.com/pyenv/pyenv-installer))
 - [`zsh-nvm`](https://github.com/lukechilds/zsh-nvm) to provide
   [`nvm`](https://github.com/nvm-sh/nvm/)
   - ```mkdir -p  ~/git/github.com/lukechilds/

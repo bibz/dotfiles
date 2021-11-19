@@ -1,6 +1,9 @@
 # Load new functions
 fpath+=~/.zfunc
 
+# Define install directories
+export PYENV_ROOT="${HOME}/opt/pyenv"
+
 # Optionally extend the PATH environment variable.
 # Note the order of preference is reversed (LIFO).
 function path_prepend {
@@ -17,6 +20,7 @@ path_append "/snap/bin"  # Snaps
 path_append "${HOME}/Android/Sdk/platform-tools"  # Android tools
 path_prepend "${HOME}/.cargo/bin"  # local Rust binaries
 path_prepend "${HOME}/.local/bin"  # local Python (pipx) binaries
+path_prepend "${PYENV_ROOT}/bin"  # pyenv shims
 path_prepend "${HOME}/bin"  # local scripts
 export PATH=$(zsh -fc "typeset -TU P=${PATH} p; echo \$P")  # dedupe elements
 unset -f path_append
@@ -66,8 +70,6 @@ alias gti=git
 alias gut=git
 
 # Load pyenv
-export PYENV_ROOT="${HOME}/.local/pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 

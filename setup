@@ -57,10 +57,38 @@ dev() {
             libncursesw5-dev xz-utils tk-dev libxml2-dev \
             libxmlsec1-dev libffi-dev liblzma-dev
 
+    mkdir -p ~/opt
+
+    # pyenv
+    PYENV_ROOT=~/opt/pyenv
+    checkout 'https://github.com/pyenv/pyenv.git'            "${PYENV_ROOT}"
+    checkout 'https://github.com/pyenv/pyenv-doctor.git'     "${PYENV_ROOT}/plugins/pyenv-doctor"
+    checkout 'https://github.com/pyenv/pyenv-installer.git'  "${PYENV_ROOT}/plugins/pyenv-installer"
+    checkout 'https://github.com/pyenv/pyenv-update.git'     "${PYENV_ROOT}/plugins/pyenv-update"
+    checkout 'https://github.com/pyenv/pyenv-virtualenv.git' "${PYENV_ROOT}/plugins/pyenv-virtualenv"
+    checkout 'https://github.com/pyenv/pyenv-which-ext.git'  "${PYENV_ROOT}/plugins/pyenv-which-ext"
+    ( cd "${PYENV_ROOT}" && src/configure && make -C src )
 
     stow sublime-text-3
 }
 
+checkout() {
+    local source_repo
+    local target_dir
+    source_repo="$1"
+    target_dir="$2"
+
+    if [ -d "$2" ]; then
+        cd "${target_dir}"
+
+        git fetch --quiet origin
+        git pull --quiet 2>/dev/null || true  # Try to pull from upstream if we are not detached
+
+        cd -
+    else
+        git clone --quiet "${source_repo}" "${target_dir}"
+    fi
+}
 
 if [ $# -eq 0 ]; then
     usage
