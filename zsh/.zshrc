@@ -14,11 +14,11 @@ function path_append {
   fi
 }
 path_append "/snap/bin"  # Snaps
-path_append "$HOME/Android/Sdk/platform-tools"  # Android tools
-path_prepend "$HOME/.cargo/bin"  # local Rust binaries
-path_prepend "$HOME/.local/bin"  # local Python (pipx) binaries
-path_prepend "$HOME/bin"  # local scripts
-export PATH=$(zsh -fc "typeset -TU P=$PATH p; echo \$P")  # dedupe elements
+path_append "${HOME}/Android/Sdk/platform-tools"  # Android tools
+path_prepend "${HOME}/.cargo/bin"  # local Rust binaries
+path_prepend "${HOME}/.local/bin"  # local Python (pipx) binaries
+path_prepend "${HOME}/bin"  # local scripts
+export PATH=$(zsh -fc "typeset -TU P=${PATH} p; echo \$P")  # dedupe elements
 unset -f path_append
 unset -f path_prepend
 
