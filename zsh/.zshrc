@@ -89,5 +89,3 @@ compinit
 # End of lines added by compinstall
 
 source /etc/zsh_command_not_found
-
-eval "$(starship init zsh)"
