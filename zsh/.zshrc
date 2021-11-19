@@ -89,3 +89,22 @@ compinit
 # End of lines added by compinstall
 
 source /etc/zsh_command_not_found
+
+# Configure prompt
+p_lf=$'\n'
+if [ -n "${SSH_CONNECTION}" ]; then
+    p_me='%n@%m'
+elif [ "${LOGNAME}" != "${USER}" ]; then
+    p_me='%n'
+else
+    p_me=''
+fi
+if [ -n "${p_me}" ]; then
+    p_host="%B%F{green}${p_me}%f%b in"
+else
+    p_host=''
+fi
+p_path='%B%F{blue}%~%f%b'
+p_indicator='%(?.%F{cyan}.%F{red})%#%f'
+PROMPT="${p_lf}${p_host}${p_path}${p_lf}${p_indicator} "
+unset p_host p_indicator p_lf p_path
