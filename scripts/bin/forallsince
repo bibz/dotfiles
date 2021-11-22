@@ -7,8 +7,24 @@ TO_COMMIT=HEAD
 COMMITS_IN_BETWEEN=$(git log --format=%H --reverse ${FROM_COMMIT}..${TO_COMMIT})
 NUMBER_OF_COMMITS=$(echo ${COMMITS_IN_BETWEEN} | wc -w)
 
+RESET='\033[0m'
+BOLD='\033[1m'
+GREEN='\033[32m'
+RED='\033[31m'
+
+
 log() {
-    echo "========== $@ =========="
+    printf "========== ${BOLD}%s${RESET} ==========\n" "$@"
+}
+
+success() {
+    printf "${GREEN}========== ${BOLD}SUCCESS${RESET}${GREEN} ==========${RESET}\n"
+    printf "${GREEN}%s${RESET}\n" "$@"
+}
+
+failure() {
+    printf "${RED}========== ${BOLD}FAILURE${RESET}${RED} ==========${RESET}\n"
+    printf "${RED}%s${RESET}\n" "$@"
 }
 
 n=1
@@ -22,10 +38,10 @@ done
 
 # We exited early
 if test $n -le ${NUMBER_OF_COMMITS} ; then
-    log "Failed at commit $n/${NUMBER_OF_COMMITS}"
+    failure "Failed at commit $n/${NUMBER_OF_COMMITS}"
     git checkout -q -
 else
-    log "Successfully surveyed ${NUMBER_OF_COMMITS} commits"
+    success "Successfully surveyed ${NUMBER_OF_COMMITS} commits"
 fi
 
 log "Back to original state"
