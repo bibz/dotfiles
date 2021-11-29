@@ -1,32 +1,6 @@
 # Load new functions
 fpath+=~/.zfunc
 
-# Define install directories
-export PYENV_ROOT="${HOME}/opt/pyenv"
-export NVM_DIR="${HOME}/opt/nvm"
-
-# Optionally extend the PATH environment variable.
-# Note the order of preference is reversed (LIFO).
-function path_prepend {
-  if [ -d "$1" ]; then
-    PATH="$1:${PATH}"
-  fi
-}
-function path_append {
-  if [ -d "$1" ]; then
-    PATH="${PATH}:$1"
-  fi
-}
-path_append "/snap/bin"  # Snaps
-path_append "${HOME}/Android/Sdk/platform-tools"  # Android tools
-path_prepend "${HOME}/.cargo/bin"  # local Rust binaries
-path_prepend "${HOME}/.local/bin"  # local Python (pipx) binaries
-path_prepend "${PYENV_ROOT}/bin"  # pyenv shims
-path_prepend "${HOME}/bin"  # local scripts
-export PATH=$(zsh -fc "typeset -TU P=${PATH} p; echo \$P")  # dedupe elements
-unset -f path_append
-unset -f path_prepend
-
 # Configure the Z shell history
 HISTFILE=~/.zsh_history
 HISTSIZE=5000   # In-memory history
