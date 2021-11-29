@@ -72,7 +72,6 @@ alias gut=git
 
 # Load pyenv
 [ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv init -)"
-[ -s "${PYENV_ROOT}/bin/pyenv" ] && eval "$(pyenv virtualenv-init -)"
 
 # Load nvm
 [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" --no-use
