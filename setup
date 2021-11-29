@@ -11,6 +11,7 @@ Synopsis:
 Roles:
     base: Basic configuration and utilities for my everyday CLI life
     dev: Development tools
+    pro: Professional (as in, work) environment
     refresh: Refresh the package repositories
 HEREDOC
 }
@@ -77,6 +78,10 @@ dev() {
     stow sublime-text-3
 }
 
+pro() {
+    sudo snap install --classic pycharm-professional
+}
+
 checkout() {
     local source_repo
     local target_dir
@@ -120,12 +125,13 @@ if [ $# -eq 1 -a "x$1" = "xall" ]; then
     refresh
     base
     dev
+    pro
     exit 0
 fi
 
 while [ $# -gt 0 ]; do
     case $1 in
-        base|dev) $1;;
+        base|dev|pro) $1;;
         *) echo "$(usage)" >&2; exit 1;;
     esac
     shift
