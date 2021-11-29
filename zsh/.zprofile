@@ -41,3 +41,10 @@ export PATH
 
 unset -f path_append
 unset -f path_prepend
+
+
+#######################################################################
+# Miscellaneous
+
+# Yeah, US, I know. It's only because it makes things easier for the CLI.
+export LANG=en_US.UTF-8
