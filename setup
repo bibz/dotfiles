@@ -10,6 +10,7 @@ Synopsis:
 
 Roles:
     base: Basic configuration and utilities for my everyday CLI life
+    gui: For my everyday GUI life
     dev: Development tools
     pro: Professional (as in, work) environment
     refresh: Refresh the package repositories
@@ -37,6 +38,16 @@ base() {
     stow nano
     stow scripts
     stow zsh
+}
+
+gui() {
+    apt_install \
+        keepassxc \
+        i3 \
+        rxvt-unicode \
+        xsel
+
+    stow i3
 }
 
 dev() {
@@ -124,6 +135,7 @@ set -x
 if [ $# -eq 1 -a "x$1" = "xall" ]; then
     refresh
     base
+    gui
     dev
     pro
     exit 0

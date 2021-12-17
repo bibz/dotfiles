@@ -1,0 +1,11 @@
+!- Font Render
+Xft.dpi: 96
+Xft.antialiasing: false
+Xft.hinting: true
+Xft.lcdfilter: lcddefault
+!Xft.rgba: none
+!Xft.hintstyle: hintfull
+
+#include </home/borjan/.config/Xresources.d/solarized.resources>
+!#include </home/borjan/.config/Xresources.d/base16-monokai.resources>
+#include </home/borjan/.config/Xresources.d/URxvt.resources>
