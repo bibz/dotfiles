@@ -96,6 +96,9 @@ dev() {
     checkout 'https://github.com/nvm-sh/nvm.git' "${NVM_DIR}"
     update_to_latest_tag "${NVM_DIR}"
 
+    python3 -mpip install -U pipx
+    pipx install poetry
+
     stow sublime-text-3
 }
 
