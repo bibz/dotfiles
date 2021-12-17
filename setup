@@ -26,11 +26,17 @@ apt_install() {
 }
 
 base() {
+    sudo cp syncthing-archive-keyring.gpg /usr/share/keyrings/syncthing-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" \
+        | sudo tee /etc/apt/sources.list.d/syncthing.list
+    refresh
+
     apt_install \
         apt-transport-https \
         command-not-found \
         curl \
         stow \
+        syncthing \
         wget \
         xz-utils
 
