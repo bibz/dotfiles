@@ -97,6 +97,8 @@ dev() {
     update_to_latest_tag "${NVM_DIR}"
 
     python3 -mpip install -U pipx
+    pipx install 'black[d]'
+    pipx install magic-wormhole
     pipx install poetry
 
     stow sublime-text-3
