@@ -41,6 +41,11 @@ base() {
         xclip \
         xz-utils
 
+    # TODO: requires either anacron or equivalent (systemd)
+    test -x /usr/sbin/anacron
+    crontab anacrontab
+
+    stow cron
     stow git
     stow nano
     stow scripts
